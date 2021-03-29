@@ -15,7 +15,6 @@ def test_volume_of_cylinder():
 
 @pytest.mark.parametrize("test_input, expected", [(2, 12.57), (3, 28.27), (4, 50.27)])
 def test_area_of_cirle2(test_input, expected):
-    print(1)
     rounded_result = round(area_of_cirle(test_input), 2)
     assert rounded_result == expected
 
