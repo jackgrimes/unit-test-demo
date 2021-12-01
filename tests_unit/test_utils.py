@@ -7,21 +7,33 @@ import pytest
 from utils.utils import area_of_cirle, volume_of_cylinder
 from utils.utils_io import DataReader, long_function_involving_reading_data
 
+
 # Basic test - check output of a function with given input is the expected output
 def test_area_of_cirle():
-    assert round(area_of_cirle(1), 2) == 3.14
+    expected_output = 3.14
+
+    output = area_of_cirle(1)
+
+    assert round(output, 2) == expected_output
 
 
 # Basic test - check output of a function with given input is the expected output
 def test_volume_of_cylinder():
-    assert round(volume_of_cylinder(1, 1), 2) == 3.14
+
+    expected_output = 6.28
+
+    output = volume_of_cylinder(1, 2)
+
+    assert round(output, 2) == expected_output
 
 
 # pytest.mark.parametrize - shorter way of testing lots of inputs and corresponding expected outputs
-@pytest.mark.parametrize("test_input, expected", [(2, 12.57), (3, 28.27), (4, 50.27)])
-def test_area_of_cirle_2(test_input, expected):
-    rounded_result = round(area_of_cirle(test_input), 2)
-    assert rounded_result == expected
+@pytest.mark.parametrize("input, expected_output", [(2, 12.57), (3, 28.27), (4, 50.27)])
+def test_area_of_cirle_2(input, expected_output):
+
+    output = area_of_cirle(input)
+
+    assert round(output, 2) == expected_output
 
 
 # MagicMock - sets up a sort of dummy object (mock_engine below), with a set return_value
